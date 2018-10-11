@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\Level_End.cs" />
      <Compile Include="Assets\Scripts\Player_Fall_Check.cs" />
      <Compile Include="Assets\Scripts\Player_Move.cs" />
  <Reference Include="UnityEditor.StandardEvents">

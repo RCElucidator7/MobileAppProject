@@ -8,9 +8,10 @@ public class Player_Move : MonoBehaviour {
     private bool faceRight = false;
     public int jump = 1250;
     private float moveXPos;
-	
-	// Update is called once per frame
-	void Update () {
+    private bool isGrounded;
+
+    // Update is called once per frame
+    void Update () {
         PlayerMove ();
 	}
 
@@ -40,7 +41,7 @@ public class Player_Move : MonoBehaviour {
     {
         //Code to jump
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump);
-
+        isGrounded = false;
     }
 
     void FlipPlayer()
@@ -50,4 +51,11 @@ public class Player_Move : MonoBehaviour {
         localScale.x *= -1;
         transform.localScale = localScale;
     }
+
+    void OnCollisionEnter2D (Collision2D col){
+        //Debug.Log("Hit" + col.collider.name);
+        if(col.gameObject.tag == "ground"){
+            isGrounded = true;
+        }
+    } 
 }
