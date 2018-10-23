@@ -5,10 +5,10 @@ using UnityEngine;
 public class Player_Move : MonoBehaviour {
 
     public int speed = 10;
-    private bool faceRight = false;
     public int jump = 1250;
     private float moveXPos;
     private bool isGrounded;
+    private int jumpCount = 0;
 
     // Update is called once per frame
     void Update () {
@@ -21,16 +21,22 @@ public class Player_Move : MonoBehaviour {
         moveXPos = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump"))
         {
-            Jump();
+            if(jumpCount > 1){
+                // Can't Jump
+            }
+            else{
+                Jump();
+                jumpCount++;
+            }
         }
         //Player Direction
-        if(moveXPos < 0.0f && faceRight == false)
+        if(moveXPos < 0.0f)
         {
-            FlipPlayer();
+            GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if (moveXPos > 0.0f && faceRight == true)
+        else if (moveXPos > 0.0f)
         {
-            FlipPlayer();
+            GetComponent<SpriteRenderer>().flipX = false;
         }
 
         //Game Physics
@@ -44,18 +50,9 @@ public class Player_Move : MonoBehaviour {
         isGrounded = false;
     }
 
-    void FlipPlayer()
-    {
-        faceRight = !faceRight;
-        Vector2 localScale = gameObject.transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
-    }
-
     void OnCollisionEnter2D (Collision2D col){
-        //Debug.Log("Hit" + col.collider.name);
         if(col.gameObject.tag == "ground"){
-            isGrounded = true;
+            jumpCount = 0;
         }
     } 
 }

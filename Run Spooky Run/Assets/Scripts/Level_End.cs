@@ -12,6 +12,10 @@ public class Level_End : MonoBehaviour {
 	public GameObject timeLeftUI;
 	public GameObject playerScoreUI;
 	
+	void Start () {
+		Data_Management.dataManagement.LoadData();
+	}
+
 	// Update is called once per frame
 	void Update () {
 		timeLeft -= Time.deltaTime;
@@ -24,12 +28,16 @@ public class Level_End : MonoBehaviour {
 
 	void CountScore(){
 		playerScore = playerScore + (int)(timeLeft * 10);
+		Data_Management.dataManagement.highScore = playerScore + (int)(timeLeft * 10);
+		Data_Management.dataManagement.SaveData();
 	}
 
 	void OnTriggerEnter2D (Collider2D trig){
 		Debug.Log("Hit end");
 		if(trig.gameObject.name == "Level_End"){
 			CountScore();
+			Data_Management.dataManagement.SaveData();
+			//SceneManager.LoadScene("Level_2");
 		}
 
 		if(trig.gameObject.name == "Waste"){
