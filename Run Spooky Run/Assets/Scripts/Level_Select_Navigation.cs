@@ -6,17 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Level_Select_Navigation : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void levelOneButton () {
 		SceneManager.LoadScene("Level_1");
+	}
+
+	public void levelTwoButton () {
+		SceneManager.LoadScene("Level_2");
 	}
 }

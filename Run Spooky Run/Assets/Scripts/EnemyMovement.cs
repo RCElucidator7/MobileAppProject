@@ -26,13 +26,6 @@ public class EnemyMovement : MonoBehaviour {
 			transform.position = Vector2.MoveTowards(transform.position, target.position, enemySpeed * Time.deltaTime);
 		}
 
-
-
-		/*RaycastHit2D hit = Physics2D.Raycast (transform.position, new Vector2 (xDir, 0));
-		gameObject.GetComponent<Rigidbody2D> ().velocity = new Vector2 (xDir, 0) * enemySpeed;
-		if(hit.distance < 0.7f){
-			Flip ();
-		}*/
 	if(gameObject.transform.position == target.position && isDead == false)
         {
             Debug.Log("Player has Died");
@@ -50,13 +43,4 @@ public class EnemyMovement : MonoBehaviour {
         SceneManager.LoadScene ("Level_1");
         yield return null;
     }
-
-	/*void Flip (){
-		if (xDir > 0){
-			xDir = -1;
-		}
-		else {
-			xDir = 1;
-		}
-	}*/
 }

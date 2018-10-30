@@ -7,7 +7,6 @@ public class Player_Move : MonoBehaviour {
     public int speed = 10;
     public int jump = 1250;
     private float moveXPos;
-    private bool isGrounded;
     private int jumpCount = 0;
 
     // Update is called once per frame
@@ -47,7 +46,6 @@ public class Player_Move : MonoBehaviour {
     {
         //Code to jump
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump);
-        isGrounded = false;
     }
 
     void OnCollisionEnter2D (Collision2D col){

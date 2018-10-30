@@ -8,7 +8,6 @@ public class Level_End : MonoBehaviour {
 
 	private float timeLeft = 480;
 	public int playerScore = 0;
-	private GameObject waste;
 	public GameObject timeLeftUI;
 	public GameObject playerScoreUI;
 	
@@ -33,16 +32,22 @@ public class Level_End : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D trig){
-		Debug.Log("Hit end");
 		if(trig.gameObject.name == "Level_End"){
+			Debug.Log("Hit end");
 			CountScore();
 			Data_Management.dataManagement.SaveData();
-			//SceneManager.LoadScene("Level_2");
+			SceneManager.LoadScene("Level_2");
 		}
 
 		if(trig.gameObject.name == "Waste"){
+			Debug.Log("Collected Waste");
 			playerScore += 100;
 			Destroy (trig.gameObject);
+		}
+
+		if(trig.gameObject.name == "Enemy"){
+			SceneManager.LoadScene("Level_1");
+			Debug.Log("Hit enemy");
 		}
 	}
 }
