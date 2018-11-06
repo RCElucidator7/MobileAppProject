@@ -11,9 +11,9 @@ public class Level_End : MonoBehaviour {
 	public GameObject timeLeftUI;
 	public GameObject playerScoreUI;
 	
-	void Start () {
+	/*void Start () {
 		Data_Management.dataManagement.LoadData();
-	}
+	}*/
 
 	// Update is called once per frame
 	void Update () {
@@ -27,16 +27,44 @@ public class Level_End : MonoBehaviour {
 
 	void CountScore(){
 		playerScore = playerScore + (int)(timeLeft * 10);
-		Data_Management.dataManagement.highScore = playerScore + (int)(timeLeft * 10);
-		Data_Management.dataManagement.SaveData();
+		//Data_Management.dataManagement.highScore = playerScore + (int)(timeLeft * 10);
+		//Data_Management.dataManagement.SaveData();
 	}
 
 	void OnTriggerEnter2D (Collider2D trig){
 		if(trig.gameObject.name == "Level_End"){
 			Debug.Log("Hit end");
 			CountScore();
-			Data_Management.dataManagement.SaveData();
+			//Data_Management.dataManagement.SaveData();
 			SceneManager.LoadScene("Level_2");
+		}
+
+		if(trig.gameObject.name == "Level_End2"){
+			Debug.Log("Hit end");
+			CountScore();
+			//Data_Management.dataManagement.SaveData();
+			SceneManager.LoadScene("Level_3");
+		}
+
+		if(trig.gameObject.name == "Level_End3"){
+			Debug.Log("Hit end");
+			CountScore();
+			//Data_Management.dataManagement.SaveData();
+			SceneManager.LoadScene("Level_4");
+		}
+
+		if(trig.gameObject.name == "Level_End4"){
+			Debug.Log("Hit end");
+			CountScore();
+			//Data_Management.dataManagement.SaveData();
+			SceneManager.LoadScene("Level_5");
+		}
+
+		if(trig.gameObject.name == "Level_End5"){
+			Debug.Log("Hit end");
+			CountScore();
+			//Data_Management.dataManagement.SaveData();
+			SceneManager.LoadScene("MainMenu");
 		}
 
 		if(trig.gameObject.name == "Waste"){
