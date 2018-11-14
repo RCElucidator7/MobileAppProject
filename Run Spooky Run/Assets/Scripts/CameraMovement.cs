@@ -20,6 +20,7 @@ public class CameraMovement : MonoBehaviour {
 	void LateUpdate () {
         float x = Mathf.Clamp(player.transform.position.x, xMin, xMax);
         float y = Mathf.Clamp(player.transform.position.y, yMin, yMax);
+        //Follows the player model as it moves
         gameObject.transform.position = new Vector3(x, y, gameObject.transform.position.z);
     }
 }

@@ -13,4 +13,16 @@ public class Level_Select_Navigation : MonoBehaviour {
 	public void levelTwoButton () {
 		SceneManager.LoadScene("Level_2");
 	}
+
+	public void levelThreeButton () {
+		SceneManager.LoadScene("Level_3");
+	}
+
+	public void levelFourButton () {
+		SceneManager.LoadScene("Level_4");
+	}
+
+	public void levelFiveButton () {
+		SceneManager.LoadScene("Level_5");
+	}
 }
