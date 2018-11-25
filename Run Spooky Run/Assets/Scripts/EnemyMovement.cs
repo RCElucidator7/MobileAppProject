@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour {
 			transform.position = Vector2.MoveTowards(transform.position, target.position, enemySpeed * Time.deltaTime);
 		}
 
-	if(gameObject.transform.position == target.position && isDead == false)
+	/*if(gameObject.transform.position == target.position && isDead == false)
         {
             Debug.Log("Player has Died");
             isDead = true;
@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour {
             {
                 StartCoroutine ("Die");
             }
-        }
+		}*/
 	}
 
     IEnumerator Die ()

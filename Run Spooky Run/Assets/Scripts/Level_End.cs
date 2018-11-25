@@ -72,15 +72,15 @@ public class Level_End : MonoBehaviour {
 			SceneManager.LoadScene("MainMenu");
 		}
 
-		if(trig.gameObject.name == "Waste"){
+		/*if(trig.gameObject.name == "Waste"){
 			Debug.Log("Collected Waste");
 			playerScore += 100;
 			Destroy (trig.gameObject);
-		}
+		}*/
 
-		if(trig.gameObject.name == "Enemy"){
+		/*if(trig.gameObject.name == "Enemy"){
 			SceneManager.LoadScene("Level_1");
 			Debug.Log("Hit enemy");
-		}
+		}*/
 	}
 }
