@@ -388,7 +388,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 170737737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 169, y: -0.5, z: -1}
+  m_LocalPosition: {x: 169, y: -0.5, z: 0}
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -657,12 +657,12 @@ Prefab:
     - target: {fileID: 224060268043436330, guid: 715422f797e61c041b333e7e2f90d947,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 80
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 224060268043436330, guid: 715422f797e61c041b333e7e2f90d947,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 224060268043436330, guid: 715422f797e61c041b333e7e2f90d947,
         type: 2}
@@ -687,7 +687,22 @@ Prefab:
     - target: {fileID: 224060268043436330, guid: 715422f797e61c041b333e7e2f90d947,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224953027511233616, guid: 715422f797e61c041b333e7e2f90d947,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 224953027511233616, guid: 715422f797e61c041b333e7e2f90d947,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 224953027511233616, guid: 715422f797e61c041b333e7e2f90d947,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 715422f797e61c041b333e7e2f90d947, type: 2}
@@ -821,7 +836,6 @@ MonoBehaviour:
   jump: 1000
   health: 3
   timeLeft: 5
-  hearts: []
 --- !u!50 &451880127
 Rigidbody2D:
   serializedVersion: 4
@@ -967,7 +981,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.4796
+  orthographic size: 6.7724757
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2250,8 +2264,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265568573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 89.96, y: 12.06, z: 0}
-  m_LocalScale: {x: 206.668, y: 0.68, z: 1}
+  m_LocalPosition: {x: 89.96, y: 11.62, z: 0}
+  m_LocalScale: {x: 206.668, y: 1.9244, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -2517,6 +2531,7 @@ GameObject:
   - component: {fileID: 2071738011}
   - component: {fileID: 2071738012}
   - component: {fileID: 2071738013}
+  - component: {fileID: 2071738014}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -2531,15 +2546,15 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2071738010}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 110, y: 80, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -13}
+  m_LocalScale: {x: 70, y: 60, z: 1}
   m_Children: []
   m_Father: {fileID: 266951769}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 350, y: -15}
+  m_AnchoredPosition: {x: 360, y: -30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2071738012
@@ -2595,3 +2610,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2071738010}
   m_CullTransparentMesh: 0
+--- !u!114 &2071738014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071738010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae5e9b244d092542b28d5c3b7be4f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heart3: {fileID: 21300000, guid: bcd09e01a70cf0e4c8a1a755b4ae6a19, type: 3}
+  heart2: {fileID: 21300000, guid: 5983099e7c11fcb40a445b1a2c63a12b, type: 3}
+  heart1: {fileID: 21300000, guid: 54c050d9f5d23dc41b1cd58797568440, type: 3}
+  heart0: {fileID: 21300000, guid: 968854a4d7243474faf87d82a41b421d, type: 3}
+  health_Check: 3
+  pm: {fileID: 451880126}
