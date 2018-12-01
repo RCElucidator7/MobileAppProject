@@ -8,7 +8,7 @@ public class Player_Move : MonoBehaviour {
 
     public int speed = 10;
     public int jump = 1250;
-    public int health = 3;
+    public int health = 4;
     public float timeLeft = 5;
     private float moveXPos;
     private int jumpCount = 0;
@@ -72,6 +72,19 @@ public class Player_Move : MonoBehaviour {
         if(col.gameObject.tag == "Enemy"){
             if(powerUpCheck == true){
                 Destroy(col.gameObject);
+            }
+            else{
+                health--;
+                Debug.Log(health);
+                if(health == 0){
+                    SceneManager.LoadScene("Level_1");
+                }
+            }
+        }
+
+        if(col.gameObject.tag == "Spike"){
+            if(powerUpCheck == true){
+                // Do no damage
             }
             else{
                 health--;

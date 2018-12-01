@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Level_End : MonoBehaviour {
 
 
-	private float timeLeft = 480;
+	private float timeLeft = 0;
+	private float timeLimit = 180;
 	public int playerScore = 0;
 	public GameObject timeLeftUI;
 	public GameObject playerScoreUI;
@@ -18,12 +19,12 @@ public class Level_End : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Decreases the time every second
-		timeLeft -= Time.deltaTime;
+		timeLeft += Time.deltaTime;
 		// Updates the time on the GUI
 		timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left: " + (int)timeLeft);
 		playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
 		// If the timer goes below 0 put the player back to the main menu
-		if(timeLeft < 0.1f){
+		if(timeLeft >= timeLimit){
 			SceneManager.LoadScene("MainMenu");
 		}
 	}
