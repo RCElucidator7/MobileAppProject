@@ -56,7 +56,9 @@
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Data_Management.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\Levels\Game_Over_Menu.cs" />
      <Compile Include="Assets\Scripts\Levels\Level_End.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level_End_Menu.cs" />
      <Compile Include="Assets\Scripts\Levels\Level_Select_Navigation.cs" />
      <Compile Include="Assets\Scripts\Levels\Main_Menu_Navigation.cs" />
      <Compile Include="Assets\Scripts\Levels\Pause_Menu.cs" />

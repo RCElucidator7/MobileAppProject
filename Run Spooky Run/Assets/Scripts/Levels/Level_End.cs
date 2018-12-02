@@ -9,6 +9,7 @@ public class Level_End : MonoBehaviour {
 	private float timeLeft = 0;
 	private float timeLimit = 180;
 	public int playerScore = 0;
+	public bool EndCheck = false;
 	public GameObject timeLeftUI;
 	public GameObject playerScoreUI;
 	
@@ -39,49 +40,38 @@ public class Level_End : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D trig){
 		// If the player hits the end of the first level, load the next level
 		if(trig.gameObject.name == "Level_End"){
-			Debug.Log("Hit end");
+			EndCheck = true;
 			CountScore();
 			//Data_Management.dataManagement.SaveData();
-			SceneManager.LoadScene("Level_2");
+			//SceneManager.LoadScene("Level_2");
 		}
 		// If the player hits the end of the second level, load the next level
 		if(trig.gameObject.name == "Level_End2"){
-			Debug.Log("Hit end");
+			EndCheck = true;
 			CountScore();
 			//Data_Management.dataManagement.SaveData();
 			SceneManager.LoadScene("Level_3");
 		}
 		// If the player hits the end of the third level, load the next level
 		if(trig.gameObject.name == "Level_End3"){
-			Debug.Log("Hit end");
+			EndCheck = true;
 			CountScore();
 			//Data_Management.dataManagement.SaveData();
 			SceneManager.LoadScene("Level_4");
 		}
 		// If the player hits the end of the forth level, load the next level
 		if(trig.gameObject.name == "Level_End4"){
-			Debug.Log("Hit end");
+			EndCheck = true;
 			CountScore();
 			//Data_Management.dataManagement.SaveData();
 			SceneManager.LoadScene("Level_5");
 		}
 		// If the player hits the end of the fifth level, load the main menu
 		if(trig.gameObject.name == "Level_End5"){
-			Debug.Log("Hit end");
+			EndCheck = true;
 			CountScore();
 			//Data_Management.dataManagement.SaveData();
 			SceneManager.LoadScene("MainMenu");
 		}
-
-		/*if(trig.gameObject.name == "Waste"){
-			Debug.Log("Collected Waste");
-			playerScore += 100;
-			Destroy (trig.gameObject);
-		}*/
-
-		/*if(trig.gameObject.name == "Enemy"){
-			SceneManager.LoadScene("Level_1");
-			Debug.Log("Hit enemy");
-		}*/
 	}
 }

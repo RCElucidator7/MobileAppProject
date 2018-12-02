@@ -77,7 +77,7 @@ public class Player_Move : MonoBehaviour {
                 health--;
                 Debug.Log(health);
                 if(health == 0){
-                    SceneManager.LoadScene("Level_1");
+                    //SceneManager.LoadScene("Level_1");
                 }
             }
         }
@@ -90,7 +90,7 @@ public class Player_Move : MonoBehaviour {
                 health--;
                 Debug.Log(health);
                 if(health == 0){
-                    SceneManager.LoadScene("Level_1");
+                    //SceneManager.LoadScene("Level_1");
                 }
             }
         }
