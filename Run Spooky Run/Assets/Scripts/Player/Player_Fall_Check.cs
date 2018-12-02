@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Player_Fall_Check : MonoBehaviour {
 
-    public int health;
     public bool isDead;
 
 	// Use this for initialization
@@ -22,14 +21,14 @@ public class Player_Fall_Check : MonoBehaviour {
 
             if(isDead == true)
             {
-                StartCoroutine ("Die");
+                Dead();
             }
         }
 	}
 
-    IEnumerator Die ()
+    public void Dead ()
     {
-        SceneManager.LoadScene ("Level_1");
-        yield return null;
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
     }
 }
