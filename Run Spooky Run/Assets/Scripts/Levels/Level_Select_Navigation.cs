@@ -6,23 +6,59 @@ using UnityEngine.SceneManagement;
 
 public class Level_Select_Navigation : MonoBehaviour {
 
+	public Sprite star1;
+    public Sprite star2;
+    public Sprite star3;
+	public int score1;
+	public int score2;
+	public int score3;
+	public int score4;
+	public int score5;
+	//public Level_End LE;
+
+	// Update is called once per frame
+	void Update () {
+		//Set the local health to the characters health
+		//score1 = LE.playerScore;
+		//if statements to check what the players health is currently, changes heart sprite accordingly
+		if(score1 > 0){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = star1;
+			return;
+        }
+        else if(score1 > 500){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = star2;
+			return;
+        }
+        else if(score1 > 1000){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = star3;
+			return;
+        }
+	}
 	public void levelOneButton () {
 		SceneManager.LoadScene("Level_1");
 	}
 
 	public void levelTwoButton () {
-		SceneManager.LoadScene("Level_2");
+		if(score1 != 0){
+			SceneManager.LoadScene("Level_2");
+		}
 	}
 
 	public void levelThreeButton () {
-		SceneManager.LoadScene("Level_3");
+		if(score2 != 0){
+			SceneManager.LoadScene("Level_3");
+		}
 	}
 
 	public void levelFourButton () {
-		SceneManager.LoadScene("Level_4");
+		if(score3 != 0){
+			SceneManager.LoadScene("Level_4");
+		}
 	}
 
 	public void levelFiveButton () {
-		SceneManager.LoadScene("Level_5");
+		if(score4 != 0){
+			SceneManager.LoadScene("Level_5");
+		}
 	}
 }

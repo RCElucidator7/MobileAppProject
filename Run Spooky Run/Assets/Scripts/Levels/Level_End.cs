@@ -32,7 +32,7 @@ public class Level_End : MonoBehaviour {
 
 	void CountScore(){
 		//Takes the score by taking the time of completion and multiplying it by 10
-		playerScore = playerScore + (int)(timeLeft * 10);
+		playerScore = playerScore + (int)((timeLimit - timeLeft) * 10);
 		//Data_Management.dataManagement.highScore = playerScore + (int)(timeLeft * 10);
 		//Data_Management.dataManagement.SaveData();
 	}

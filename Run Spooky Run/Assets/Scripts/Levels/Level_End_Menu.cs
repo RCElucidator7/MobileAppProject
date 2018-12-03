@@ -36,7 +36,7 @@ public class Level_End_Menu : MonoBehaviour {
 		levelEndMenu.SetActive(false);
 		Time.timeScale = 1f;
 		Scene scene = SceneManager.GetActiveScene();
-		if(scene.name == "Level_1"){
+ 		if(scene.name == "Level_1"){
 			SceneManager.LoadScene("Level_2");
 		}
 		// If the player hits the end of the second level, load the next level

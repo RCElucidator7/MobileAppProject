@@ -826,6 +826,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7517b570b506cc4bb72dc5d93082186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  star1: {fileID: 21300000, guid: 3ee972b8cf9ca534f9f70539ff4e988e, type: 3}
+  star2: {fileID: 21300000, guid: a58b6a6eb9497fd4cbfd72edaf13d03d, type: 3}
+  star3: {fileID: 21300000, guid: cac2a161f25ee3a4591de7e354891b87, type: 3}
+  score1: 0
+  score2: 0
+  score3: 0
+  score4: 0
+  score5: 0
+  LE: {fileID: 0}
 --- !u!1 &1250988330
 GameObject:
   m_ObjectHideFlags: 0
