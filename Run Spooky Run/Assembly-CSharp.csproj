@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Data_Management.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\Levels\Audio_Manager.cs" />
      <Compile Include="Assets\Scripts\Levels\Game_Over_Menu.cs" />
      <Compile Include="Assets\Scripts\Levels\Level_End.cs" />
      <Compile Include="Assets\Scripts\Levels\Level_End_Menu.cs" />
@@ -65,6 +66,7 @@
      <Compile Include="Assets\Scripts\Player\Health_Check.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Fall_Check.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Move.cs" />
+     <Compile Include="Assets\Scripts\SplashScreenScript.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/Unity/Projects/Run Spooky Run/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
