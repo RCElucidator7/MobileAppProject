@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Level_Select_Navigation : MonoBehaviour {
 
+	public Main_Menu_Navigation mmn;
 	public Sprite star1;
     public Sprite star2;
     public Sprite star3;
@@ -15,6 +16,11 @@ public class Level_Select_Navigation : MonoBehaviour {
 	public int score4;
 	public int score5;
 	//public Level_End LE;
+
+	void Start () {
+		score1 = mmn.scores[0];
+		Debug.Log(score1);
+	}
 
 	// Update is called once per frame
 	void Update () {

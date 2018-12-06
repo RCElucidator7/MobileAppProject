@@ -7,41 +7,81 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Data_Management : MonoBehaviour {
 
-	public static Data_Management dataManagement;
-	public int highScore;
+	public static PlayerScore ps;
+	//public int highScore;
 
-	void Awake () {
-		if(dataManagement == null){
-			DontDestroyOnLoad (gameObject);
-			dataManagement = this;
-		} else if (dataManagement != this){
-			Destroy (gameObject);
-		}
+	void Start () {
+		DontDestroyOnLoad(gameObject);
+        LoadData();
 	}
+	
 
 	public void SaveData () {
-		//Data is Saved
-		BinaryFormatter BinForm = new BinaryFormatter(); //Creates Bin formatter
-		FileStream file = File.Create(Application.persistentDataPath + "/gameInfo.dat"); //Creates File
-		gameData data = new gameData();
-		data.highScore = highScore;
-		BinForm.Serialize (file, data); //Serializes
-		file.Close(); //Close File
+		PlayerPrefs.SetInt("highScore1", ps.highScore1);
+		PlayerPrefs.SetInt("highScore2", ps.highScore2);
+		PlayerPrefs.SetInt("highScore3", ps.highScore3);
+		PlayerPrefs.SetInt("highScore4", ps.highScore4);
+		PlayerPrefs.SetInt("highScore5", ps.highScore5);
 	}
 
 	public void LoadData () {
-		//Data is Loaded
-		if(File.Exists (Application.persistentDataPath + "/gameInfo.dat")){
-			BinaryFormatter BinForm = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/gameInfo.dat", FileMode.Open);
-			gameData data = (gameData)BinForm.Deserialize (file);
-			file.Close();
-			highScore = data.highScore;
+
+		ps = new PlayerScore();
+
+		if(PlayerPrefs.HasKey("highScore1")){
+			ps.highScore1 = PlayerPrefs.GetInt ("highScore1");
+		}
+		else if(PlayerPrefs.HasKey("highScore2")){
+			ps.highScore2 = PlayerPrefs.GetInt ("highScore2");
+		}
+		else if(PlayerPrefs.HasKey("highScore3")){
+			ps.highScore3 = PlayerPrefs.GetInt ("highScore3");
+		}
+		else if(PlayerPrefs.HasKey("highScore4")){
+			ps.highScore4 = PlayerPrefs.GetInt ("highScore4");
+		}
+		else if(PlayerPrefs.HasKey("highScore5")){
+			ps.highScore5 = PlayerPrefs.GetInt ("highScore5");
 		}
 	}
-}
 
-[Serializable]
-class gameData {
-	public int highScore;
+	public void setScore(int score, int level){
+		Debug.Log(score);
+		Debug.Log(level);
+		if(level == 1){
+			if(score >= ps.highScore1){
+				ps.highScore1 = score;
+				SaveData();
+			}
+		}
+		else if(level == 2){
+			if(score >= ps.highScore2){
+				ps.highScore2 = score;
+				Debug.Log(ps.highScore2);
+				SaveData();
+			}
+		}
+		else if(level == 3){
+			if(score >= ps.highScore3){
+				ps.highScore3 = score;
+				SaveData();
+			}
+		}
+		else if(level == 4){
+			if(score >= ps.highScore4){
+				ps.highScore4 = score;
+				SaveData();
+			}
+		}
+		else if(level == 5){
+			if(score >= ps.highScore5){
+				ps.highScore5 = score;
+				SaveData();
+			}
+		}
+	}
+
+	public int getScore(){
+		return ps.highScore1;
+	}
 }

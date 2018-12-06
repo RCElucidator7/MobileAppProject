@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Player\Health_Check.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Fall_Check.cs" />
      <Compile Include="Assets\Scripts\Player\Player_Move.cs" />
+     <Compile Include="Assets\Scripts\PlayerScore.cs" />
      <Compile Include="Assets\Scripts\SplashScreenScript.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/Unity/Projects/Run Spooky Run/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
