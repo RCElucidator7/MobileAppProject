@@ -20,8 +20,10 @@ public class Player_Move : MonoBehaviour {
 
         // Check if the power up is active
         if(powerUpCheck == true){
+            //Set a 5 second timer where the player is temporarly invincible
             timeLeft -= Time.deltaTime;
             if(timeLeft < 0.1f){
+                //After the 5 seconds, remove invincibility and set the characters colour back
                 GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
                 powerUpCheck = false;
                 timeLeft = 5;
@@ -29,10 +31,12 @@ public class Player_Move : MonoBehaviour {
         }
 	}
 
+    //Main function that controls the players movements
     void PlayerMove()
     {
         //Controls
         moveXPos = Input.GetAxis("Horizontal");
+        //Checks if the player has jumped, and cannot jump again after two jumps
         if (Input.GetButtonDown("Jump"))
         {
             if(jumpCount > 1){
@@ -43,7 +47,7 @@ public class Player_Move : MonoBehaviour {
                 jumpCount++;
             }
         }
-        //Player Direction
+        //Player Direction: Changes the players direction based on which way they are facing
         if(moveXPos < 0.0f)
         {
             GetComponent<SpriteRenderer>().flipX = true;
@@ -57,44 +61,43 @@ public class Player_Move : MonoBehaviour {
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveXPos * speed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
     }
 
+    //Code to jump
     void Jump()
     {
-        //Code to jump
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * jump);
     }
 
     // Detects whenever the player comes into contact with certain objects
     void OnCollisionEnter2D (Collision2D col){
+        //If the players hits the ground, reset the jump counter
         if(col.gameObject.tag == "ground"){
             jumpCount = 0;
         }
 
+        //If the Player collides with the enemy, either lose health or destroy the enemy depending on if the player is invincible or not
         if(col.gameObject.tag == "Enemy"){
+            //If the player is powered up, Destory the enemy
             if(powerUpCheck == true){
                 Destroy(col.gameObject);
             }
             else{
+                //Decrement health
                 health--;
-                Debug.Log(health);
-                if(health == 0){
-                    //SceneManager.LoadScene("Level_1");
-                }
             }
         }
 
+        //If the player collides with the spikes, lose health unless invincible
         if(col.gameObject.tag == "Spike"){
             if(powerUpCheck == true){
                 // Do no damage
             }
             else{
+                jumpCount = 0;
                 health--;
-                Debug.Log(health);
-                if(health == 0){
-                    //SceneManager.LoadScene("Level_1");
-                }
             }
         }
 
+        //If the player collides with the Waste pickup, grant temporary invincibility 
         if(col.gameObject.tag == "Waste"){
 			GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 1);
             powerUpCheck = true;

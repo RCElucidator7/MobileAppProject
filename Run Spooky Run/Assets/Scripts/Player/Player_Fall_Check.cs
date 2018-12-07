@@ -14,11 +14,10 @@ public class Player_Fall_Check : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //If the player falls below a certain position restart the levels
 		if(gameObject.transform.position.y < -7 && isDead == false)
         {
-            Debug.Log("Player has Died");
             isDead = true;
-
             if(isDead == true)
             {
                 Dead();
@@ -26,8 +25,10 @@ public class Player_Fall_Check : MonoBehaviour {
         }
 	}
 
+    //Calls once the player has died
     public void Dead ()
     {
+        //Get the current scene and reload the scene
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
     }

@@ -34,7 +34,6 @@ public class Level_End : MonoBehaviour {
 	void CountScore(int level){
 		//Takes the score by taking the time of completion and multiplying it by 10
 		playerScore = playerScore + (int)((timeLimit - timeLeft) * 10);
-		Debug.Log(level);
 		dm.setScore(playerScore, level);
 	}
 
@@ -48,25 +47,21 @@ public class Level_End : MonoBehaviour {
 		if(trig.gameObject.name == "Level_End2"){
 			EndCheck = true;
 			CountScore(2);
-			SceneManager.LoadScene("Level_3");
 		}
 		// If the player hits the end of the third level, load the next level
 		if(trig.gameObject.name == "Level_End3"){
 			EndCheck = true;
 			CountScore(3);
-			SceneManager.LoadScene("Level_4");
 		}
 		// If the player hits the end of the forth level, load the next level
 		if(trig.gameObject.name == "Level_End4"){
 			EndCheck = true;
 			CountScore(4);
-			SceneManager.LoadScene("Level_5");
 		}
 		// If the player hits the end of the fifth level, load the main menu
 		if(trig.gameObject.name == "Level_End5"){
 			EndCheck = true;
 			CountScore(5);
-			SceneManager.LoadScene("MainMenu");
 		}
 	}
 }

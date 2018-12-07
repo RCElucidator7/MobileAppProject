@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Level_End_Menu : MonoBehaviour {
@@ -8,10 +9,23 @@ public class Level_End_Menu : MonoBehaviour {
 	public GameObject levelEndMenu;
 	public bool End_Check;
 	public Level_End LE;
+	public int[] scores = new int[5];
+	public int score5;
+	public GameObject level1;
+	public GameObject level2;
+	public GameObject level3;
+	public GameObject level4;
+	public GameObject level5;
 
 	// Use this for initialization
 	void Start () {
-		
+		//Get the scores from the PlayerPrefs and assign them to high score variables
+		scores[0] = PlayerPrefs.GetInt ("highScore1", 0);
+		scores[1] = PlayerPrefs.GetInt ("highScore2", 0);
+		scores[2] = PlayerPrefs.GetInt ("highScore3", 0);
+		scores[3] = PlayerPrefs.GetInt ("highScore4", 0);
+		//Having an issue with the 5th position in the array so storing in a single variable
+		score5 = PlayerPrefs.GetInt ("highScore5", 0);
 	}
 	
 	// Update is called once per frame
@@ -21,7 +35,15 @@ public class Level_End_Menu : MonoBehaviour {
 		// Checks to see if the escape key is pressed
 		if(End_Check){
 			LevelEnd();
-		}	
+		}
+
+		//Access the level game objects in the high score menu and display the scores
+		level1.gameObject.GetComponent<Text>().text = ("Level 1: " + scores[0]);
+		level2.gameObject.GetComponent<Text>().text = ("Level 2: " + scores[1]);
+		level3.gameObject.GetComponent<Text>().text = ("Level 3: " + scores[2]);
+		level4.gameObject.GetComponent<Text>().text = ("Level 4: " + scores[3]);
+		//Having an issue with the 5th position in the array so storing in a single variable
+		level5.gameObject.GetComponent<Text>().text = ("Level 5: " + score5);
 	}
 
 	// Function that sets the pause menu ingame to active and Sets the timescale to 0
